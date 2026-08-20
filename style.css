@@ -385,9 +385,9 @@ header.scrolled {
    Marquee
    ========================================================================== */
 .marquee-container {
-  background-color: var(--color-black);
+  background-color: var(--color-wine);
   color: var(--color-gold-light);
-  padding: 20px 0;
+  padding: 14px 0;
   overflow: hidden;
   display: flex;
   white-space: nowrap;
@@ -395,17 +395,18 @@ header.scrolled {
 
 .marquee-content {
   display: flex;
-  gap: 50px;
-  animation: marquee 30s linear infinite;
-  font-family: var(--font-serif);
-  font-size: 1.1rem;
-  letter-spacing: 0.05em;
+  animation: marquee 25s linear infinite;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.15em;
 }
 
 .marquee-content span {
   display: flex;
   align-items: center;
-  gap: 50px;
+  padding-right: 15px; /* Spacing between the end of one span and start of next */
 }
 
 @keyframes marquee {
