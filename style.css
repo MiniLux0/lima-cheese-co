@@ -748,7 +748,9 @@ footer {
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: var(--color-white);
+    background-color: rgba(253, 251, 247, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     flex-direction: column;
     padding: 30px 20px;
     box-shadow: var(--shadow-md);
@@ -781,6 +783,15 @@ footer {
     text-align: center;
     gap: 15px;
   }
+
+  /* Fix section padding for mobile */
+  .hero { padding: 100px 0 60px; }
+  .menu-section, .process-section, .gallery-section, .cta-section {
+    padding: 70px 0;
+  }
+  
+  .section-title { margin-bottom: 40px; }
+  .hero h1 { font-size: clamp(2.5rem, 8vw, 3rem); }
 }
 
 .badge-mock { position: fixed; bottom: 18px; right: 18px; z-index: 9999; background: var(--color-black); color: var(--color-gold-light); font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.04em; padding: 9px 14px; border-radius: 20px; border: 1px solid rgba(217,183,124,0.3); box-shadow: var(--shadow-lg); pointer-events: none; }
