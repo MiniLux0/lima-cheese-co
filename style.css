@@ -839,6 +839,16 @@ footer {
     display: block;
   }
   
+  .hero-stats {
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .stat-item span {
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+  
   .menu-grid {
     grid-template-columns: 1fr;
   }
