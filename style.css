@@ -11,9 +11,8 @@
   --color-cream: #FDFBF7;
   --color-white: #FFFFFF;
   --color-gray: #E5E5E5;
-  
-  --font-serif: 'Playfair Display SC', serif;
-  --font-sans: 'Karla', sans-serif;
+  --font-serif: 'Fraunces', serif;
+  --font-sans: 'Jost', sans-serif;
   
   --shadow-sm: 0 4px 12px rgba(110, 31, 43, 0.05);
   --shadow-md: 0 10px 30px rgba(110, 31, 43, 0.08);
