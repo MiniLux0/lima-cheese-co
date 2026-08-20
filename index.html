@@ -1,375 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lima Cheese Co — Tablas & Boxes de Queso | Delivery a todo Lima</title>
-<meta name="description" content="Tablas y boxes de queso para toda ocasión. Delivery a todo Lima. Pide por WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --cream:#F3ECDD;
-    --paper:#FBF7ED;
-    --ink:#241B12;
-    --wine:#6E1F2B;
-    --gold:#B8863B;
-    --gold-light:#D9B77C;
-    --olive:#5B6B4A;
-    --line: rgba(36,27,18,0.14);
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Jost', sans-serif;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3, .display{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    letter-spacing:-0.01em;
-  }
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
-
-  /* subtle diamond texture, echoing the logo mark */
-  .diamond-rule{
-    width:9px; height:9px;
-    border:1.5px solid var(--gold);
-    transform:rotate(45deg);
-    display:inline-block;
-  }
-
-  /* NAV */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(243,236,221,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 28px; max-width:1120px; margin:0 auto;
-  }
-  .brand{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:700; font-size:1.25rem; letter-spacing:0.02em;}
-  .brand .mark{
-    width:34px; height:34px; border:1.5px solid var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    transform:rotate(45deg);
-  }
-  .brand .mark span{transform:rotate(-45deg); font-size:0.62rem; letter-spacing:0.06em; font-weight:600; color:var(--wine);}
-  .navlinks{display:flex; gap:34px; font-size:0.92rem;}
-  .navlinks a{position:relative; padding-bottom:4px;}
-  .navlinks a::after{content:"";position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--wine); transition:width .25s ease;}
-  .navlinks a:hover::after{width:100%;}
-  .nav-cta{
-    background:var(--wine); color:var(--paper); padding:10px 20px;
-    border-radius:2px; font-size:0.88rem; letter-spacing:0.02em;
-    display:flex; align-items:center; gap:8px;
-  }
-  .nav-cta:hover{background:#5a1922;}
-  @media (max-width:760px){ .navlinks{display:none;} }
-
-  /* HERO */
-  .hero{
-    padding:88px 0 70px;
-    display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;
-  }
-  .eyebrow{
-    display:flex; align-items:center; gap:10px;
-    text-transform:uppercase; font-size:0.76rem; letter-spacing:0.16em; color:var(--wine); font-weight:600;
-    margin-bottom:22px;
-  }
-  .hero h1{
-    font-size:clamp(2.6rem, 5vw, 3.6rem);
-    line-height:1.04;
-    margin-bottom:22px;
-  }
-  .hero h1 em{font-style:italic; color:var(--wine); font-weight:500;}
-  .hero p.lead{
-    font-size:1.08rem; line-height:1.6; color:rgba(36,27,18,0.78);
-    max-width:460px; margin-bottom:32px;
-  }
-  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px;}
-  .btn-primary{
-    background:var(--wine); color:var(--paper); padding:15px 26px;
-    font-size:0.95rem; letter-spacing:0.02em; display:inline-flex; align-items:center; gap:10px;
-    border-radius:2px; transition:background .2s ease, transform .2s ease;
-  }
-  .btn-primary:hover{background:#5a1922; transform:translateY(-1px);}
-  .btn-secondary{
-    border:1px solid var(--ink); padding:15px 26px; font-size:0.95rem;
-    border-radius:2px; transition:border-color .2s ease, background .2s ease;
-  }
-  .btn-secondary:hover{background:rgba(36,27,18,0.06);}
-  .hero-meta{display:flex; gap:28px; font-size:0.82rem; color:rgba(36,27,18,0.65);}
-  .hero-meta strong{display:block; font-family:'Fraunces',serif; font-size:1.15rem; color:var(--ink); font-weight:600;}
-
-  .hero-visual{position:relative;}
-  .hero-visual .frame{
-    position:relative; border-radius:3px; overflow:hidden;
-    box-shadow:0 30px 60px -25px rgba(36,27,18,0.35);
-  }
-  .hero-visual img{width:100%; height:520px; object-fit:cover;}
-  .floating-tag{
-    position:absolute; bottom:-22px; left:-22px;
-    background:var(--paper); padding:16px 20px; border-radius:2px;
-    box-shadow:0 18px 40px -18px rgba(36,27,18,0.4);
-    display:flex; align-items:center; gap:12px;
-    border:1px solid var(--line);
-  }
-  .floating-tag .dot{width:8px;height:8px; background:var(--olive); border-radius:50%;}
-  .floating-tag span{font-size:0.82rem; font-weight:500;}
-  @media (max-width:900px){
-    .hero{grid-template-columns:1fr; padding-top:48px;}
-    .hero-visual img{height:360px;}
-    .hero p.lead{max-width:100%;}
-  }
-
-  /* MARQUEE STRIP */
-  .strip{
-    background:var(--ink); color:var(--gold-light);
-    padding:14px 0; overflow:hidden; white-space:nowrap;
-    font-family:'Fraunces',serif; font-size:0.95rem; letter-spacing:0.04em;
-  }
-  .strip .track{display:inline-flex; gap:48px; animation:scroll 28s linear infinite;}
-  .strip span{display:inline-flex; align-items:center; gap:48px;}
-  @keyframes scroll{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
-
-  /* MENU / PRODUCTOS */
-  .section{padding:92px 0;}
-  .section-head{max-width:620px; margin-bottom:56px;}
-  .section-head .eyebrow{margin-bottom:16px;}
-  .section-head h2{font-size:clamp(2rem,3.6vw,2.7rem); line-height:1.1;}
-  .section-head p{margin-top:16px; color:rgba(36,27,18,0.72); font-size:1.02rem; line-height:1.6;}
-
-  .menu-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--line); border:1px solid var(--line);}
-  .menu-card{background:var(--paper); padding:36px 30px; display:flex; flex-direction:column; gap:16px; transition:background .2s ease;}
-  .menu-card:hover{background:var(--cream);}
-  .menu-card .num{font-family:'Fraunces',serif; font-size:0.78rem; color:var(--gold); letter-spacing:0.08em;}
-  .menu-card img{width:100%; height:190px; object-fit:cover; border-radius:2px;}
-  .menu-card h3{font-size:1.3rem;}
-  .menu-card p{font-size:0.9rem; color:rgba(36,27,18,0.68); line-height:1.55; flex-grow:1;}
-  .menu-card .price-row{
-    display:flex; justify-content:space-between; align-items:center;
-    padding-top:14px; border-top:1px solid var(--line);
-  }
-  .menu-card .price{font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem; color:var(--wine);}
-  .menu-card .order-link{font-size:0.82rem; display:flex; align-items:center; gap:6px; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:2px;}
-  @media (max-width:900px){ .menu-grid{grid-template-columns:1fr;} }
-
-  /* PROCESO / DELIVERY */
-  .process{background:var(--wine); color:var(--paper);}
-  .process .section-head p{color:rgba(251,247,237,0.75);}
-  .process .eyebrow{color:var(--gold-light);}
-  .process-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:36px;}
-  .process-step .idx{font-family:'Fraunces',serif; font-size:2.2rem; color:var(--gold-light); margin-bottom:14px;}
-  .process-step h3{font-size:1.08rem; margin-bottom:8px; font-family:'Jost',sans-serif; font-weight:600;}
-  .process-step p{font-size:0.88rem; line-height:1.55; color:rgba(251,247,237,0.72);}
-  @media (max-width:900px){ .process-grid{grid-template-columns:1fr 1fr; row-gap:40px;} }
-  @media (max-width:560px){ .process-grid{grid-template-columns:1fr;} }
-
-  /* GALERIA */
-  .gallery-grid{
-    display:grid; grid-template-columns:repeat(4,1fr); grid-auto-rows:150px; gap:10px;
-  }
-  .gallery-grid img{width:100%; height:100%; object-fit:cover; border-radius:2px;}
-  .gallery-grid > *:nth-child(1){grid-column:span 2; grid-row:span 2;}
-  .gallery-grid > *:nth-child(4){grid-row:span 2;}
-  @media (max-width:760px){
-    .gallery-grid{grid-template-columns:repeat(2,1fr); grid-auto-rows:130px;}
-    .gallery-grid > *:nth-child(1){grid-column:span 2; grid-row:span 1;}
-    .gallery-grid > *:nth-child(4){grid-row:span 1;}
-  }
-
-  /* CTA FINAL */
-  .cta-final{
-    background:var(--ink); color:var(--paper); text-align:center; padding:110px 0;
-    position:relative; overflow:hidden;
-  }
-  .cta-final .diamond-big{
-    width:70px; height:70px; border:1.5px solid var(--gold); transform:rotate(45deg);
-    margin:0 auto 34px;
-  }
-  .cta-final h2{font-size:clamp(2.1rem,4.4vw,3rem); max-width:680px; margin:0 auto 22px; line-height:1.15;}
-  .cta-final p{color:rgba(251,247,237,0.65); margin-bottom:38px; font-size:1rem;}
-  .cta-final .btn-primary{background:var(--gold); color:var(--ink);}
-  .cta-final .btn-primary:hover{background:var(--gold-light);}
-
-  /* FOOTER */
-  footer{background:var(--ink); color:rgba(251,247,237,0.55); padding:40px 0; border-top:1px solid rgba(251,247,237,0.1);}
-  .foot-row{display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; flex-wrap:wrap; gap:14px;}
-  .foot-row .brand{color:var(--paper);}
-  .foot-row .brand .mark{border-color:var(--gold-light);}
-
-  .badge-mock{
-    position:fixed; bottom:18px; right:18px; z-index:99;
-    background:var(--ink); color:var(--gold-light);
-    font-family:'Jost',sans-serif; font-size:0.72rem; letter-spacing:0.04em;
-    padding:9px 14px; border-radius:20px; border:1px solid rgba(217,183,124,0.3);
-    box-shadow:0 10px 30px -10px rgba(0,0,0,0.5);
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lima Cheese Co — Tablas & Boxes de Queso | Delivery a todo Lima</title>
+  <meta name="description" content="Tablas y boxes de queso para toda ocasión. Delivery a todo Lima. Pide por WhatsApp.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <nav>
-    <div class="brand">
-      <div class="mark"><span>LC</span></div>
-      Lima Cheese Co
+  <!-- Header -->
+  <header>
+    <div class="container navbar">
+      <a href="#" class="logo">
+        <div class="logo-diamond"><span>LC</span></div>
+        Lima Cheese Co
+      </a>
+      
+      <button class="mobile-menu-btn" aria-label="Abrir menú">☰</button>
+      
+      <nav class="nav-links">
+        <a href="#menu">Tablas & Boxes</a>
+        <a href="#proceso">Cómo pedir</a>
+        <a href="#galeria">Galería</a>
+        <a class="btn btn-primary" href="https://wa.me/51921093040" target="_blank">Pedir por WhatsApp →</a>
+      </nav>
     </div>
-    <div class="navlinks">
-      <a href="#menu">Tablas & Boxes</a>
-      <a href="#proceso">Cómo pedir</a>
-      <a href="#galeria">Galería</a>
-    </div>
-    <a class="nav-cta" href="https://wa.me/51921093040" target="_blank">Pedir por WhatsApp →</a>
-  </nav>
-</header>
+  </header>
 
-<section class="hero">
-  <div class="wrap" style="display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;">
-    <div>
-      <div class="eyebrow"><span class="diamond-rule"></span> Delivery a todo Lima</div>
-      <h1>Tablas & boxes de queso <em>para disfrutar</em> en toda ocasión.</h1>
-      <p class="lead">Armamos cada tabla a mano con quesos, frutas, embutidos y detalles que convierten cualquier momento en algo especial. Pide hoy y recíbela en tu puerta.</p>
-      <div class="hero-ctas">
-        <a class="btn-primary" href="https://wa.me/51921093040" target="_blank">Pedir por WhatsApp ↗</a>
-        <a class="btn-secondary" href="#menu">Ver tablas y precios</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="diamond-icon"></span> Delivery a todo Lima
+        </div>
+        <h1>Tablas & boxes de queso <span>para disfrutar</span> en toda ocasión.</h1>
+        <p>Armamos cada tabla a mano con quesos seleccionados, frutas, embutidos y detalles que convierten cualquier momento en algo especial. Pide hoy y recíbela en tu puerta.</p>
+        
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="https://wa.me/51921093040" target="_blank">Pedir por WhatsApp ↗</a>
+          <a class="btn btn-secondary" href="#menu">Ver tablas y precios</a>
+        </div>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <strong>23+</strong>
+            <span>Diseños entregados</span>
+          </div>
+          <div class="stat-item">
+            <strong>S/39.90</strong>
+            <span>Precio desde</span>
+          </div>
+          <div class="stat-item">
+            <strong>Lima</strong>
+            <span>Zona de reparto</span>
+          </div>
+        </div>
       </div>
-      <div class="hero-meta">
-        <div><strong>23+</strong>diseños entregados</div>
-        <div><strong>S/39.90</strong>desde</div>
-        <div><strong>Todo Lima</strong>zona de reparto</div>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="frame">
+      
+      <div class="hero-image">
         <img src="https://images.unsplash.com/photo-1631206753348-db44968fd440?q=80&w=1200&auto=format&fit=crop" alt="Tabla de quesos Lima Cheese Co">
-      </div>
-      <div class="floating-tag"><div class="dot"></div><span>Hecha a mano, el mismo día</span></div>
-    </div>
-  </div>
-</section>
-
-<div class="strip">
-  <div class="track">
-    <span>Tablas de queso ✦ Boxes para 2 ✦ San Valentín ✦ Cumpleaños ✦ Delivery a todo Lima ✦ Tablas de queso ✦ Boxes para 2 ✦ San Valentín ✦ Cumpleaños ✦ Delivery a todo Lima ✦</span>
-  </div>
-</div>
-
-<section class="section" id="menu">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="diamond-rule"></span> El menú</div>
-      <h2>Elige tu tabla</h2>
-      <p>Tres tamaños pensados para distintos momentos — de una cena íntima a una reunión familiar. Todas incluyen quesos seleccionados, frutas de estación y crackers.</p>
-    </div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="num">01 — Individual</div>
-        <img src="https://images.unsplash.com/photo-1631206753348-db44968fd440?q=80&w=800&auto=format&fit=crop" alt="Box individual">
-        <h3>Box para 1–2</h3>
-        <p>Ideal para una tarde tranquila o un antojo especial. Quesos, uvas, nueces y mermelada.</p>
-        <div class="price-row">
-          <span class="price">S/39.90</span>
-          <a class="order-link" href="https://wa.me/51921093040" target="_blank">Pedir →</a>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="num">02 — Compartir</div>
-        <img src="https://images.unsplash.com/photo-1571805618775-9fd2ba7bd3e7?q=80&w=800&auto=format&fit=crop" alt="Tabla para compartir">
-        <h3>Tabla para 3–4</h3>
-        <p>La favorita para compartir en pareja o con amigos cercanos. Más variedad de quesos y embutidos.</p>
-        <div class="price-row">
-          <span class="price">S/49.90</span>
-          <a class="order-link" href="https://wa.me/51921093040" target="_blank">Pedir →</a>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="num">03 — Reunión</div>
-        <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?q=80&w=800&auto=format&fit=crop" alt="Tabla grande para reunión">
-        <h3>Tabla para 6–7</h3>
-        <p>Pensada para reuniones y celebraciones. Nuestra selección más completa de quesos, carnes y frutas.</p>
-        <div class="price-row">
-          <span class="price">S/79.90</span>
-          <a class="order-link" href="https://wa.me/51921093040" target="_blank">Pedir →</a>
+        <div class="badge">
+          <div class="badge-dot"></div>
+          <span class="badge-text">Hechas a mano, el mismo día</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section process" id="proceso">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="diamond-rule"></span> Cómo pedir</div>
-      <h2>De tu WhatsApp a tu puerta</h2>
-    </div>
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="idx">01</div>
-        <h3>Elige tu tabla</h3>
-        <p>Revisa el menú y elige el tamaño que se ajuste a tu ocasión.</p>
-      </div>
-      <div class="process-step">
-        <div class="idx">02</div>
-        <h3>Escríbenos</h3>
-        <p>Confirma tu pedido directo por WhatsApp, sin formularios largos.</p>
-      </div>
-      <div class="process-step">
-        <div class="idx">03</div>
-        <h3>Coordinamos</h3>
-        <p>Te confirmamos horario de entrega según tu distrito.</p>
-      </div>
-      <div class="process-step">
-        <div class="idx">04</div>
-        <h3>Disfruta</h3>
-        <p>Recibe tu tabla armada y lista para compartir.</p>
-      </div>
+  <!-- Marquee -->
+  <div class="marquee-container">
+    <div class="marquee-content">
+      <span>
+        Tablas de queso ✦ Boxes para 2 ✦ San Valentín ✦ Cumpleaños ✦ Delivery a todo Lima ✦ Tablas de queso ✦ Boxes para 2 ✦ San Valentín ✦ Cumpleaños ✦ Delivery a todo Lima
+      </span>
     </div>
   </div>
-</section>
 
-<section class="section" id="galeria">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow"><span class="diamond-rule"></span> Galería</div>
-      <h2>Lo que hemos armado</h2>
+  <!-- Menu Section -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-title">
+        <div class="eyebrow"><span class="diamond-icon"></span> El menú</div>
+        <h2>Elige tu tabla</h2>
+        <p>Tres tamaños pensados para distintos momentos — de una cena íntima a una reunión familiar. Todas incluyen quesos seleccionados, frutas de estación y crackers.</p>
+      </div>
+      
+      <div class="menu-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-img">
+            <div class="product-tag">01 — Individual</div>
+            <img src="https://images.unsplash.com/photo-1631206753348-db44968fd440?q=80&w=800&auto=format&fit=crop" alt="Box individual">
+          </div>
+          <div class="product-content">
+            <h3>Box para 1–2</h3>
+            <p>Ideal para una tarde tranquila o un antojo especial. Incluye quesos variados, uvas frescas, nueces crujientes y mermelada artesanal.</p>
+            <div class="product-footer">
+              <span class="product-price">S/39.90</span>
+              <a class="product-link" href="https://wa.me/51921093040" target="_blank">Pedir →</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-img">
+            <div class="product-tag">02 — Compartir</div>
+            <img src="https://images.unsplash.com/photo-1571805618775-9fd2ba7bd3e7?q=80&w=800&auto=format&fit=crop" alt="Tabla para compartir">
+          </div>
+          <div class="product-content">
+            <h3>Tabla para 3–4</h3>
+            <p>La favorita para compartir en pareja o con amigos cercanos. Mayor variedad de quesos maduros y selección especial de embutidos.</p>
+            <div class="product-footer">
+              <span class="product-price">S/49.90</span>
+              <a class="product-link" href="https://wa.me/51921093040" target="_blank">Pedir →</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-img">
+            <div class="product-tag">03 — Reunión</div>
+            <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?q=80&w=800&auto=format&fit=crop" alt="Tabla grande para reunión">
+          </div>
+          <div class="product-content">
+            <h3>Tabla para 6–7</h3>
+            <p>Pensada para reuniones y celebraciones. Nuestra selección más completa, abundante en quesos, carnes frías, frutas y complementos.</p>
+            <div class="product-footer">
+              <span class="product-price">S/79.90</span>
+              <a class="product-link" href="https://wa.me/51921093040" target="_blank">Pedir →</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="gallery-grid">
-      <img src="https://images.unsplash.com/photo-1631206753348-db44968fd440?q=80&w=900&auto=format&fit=crop" alt="Tabla de quesos 1">
-      <img src="https://images.unsplash.com/photo-1571805618775-9fd2ba7bd3e7?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 2">
-      <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 3">
-      <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 4">
-      <img src="https://images.unsplash.com/photo-1626957341926-98752fc2ba90?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 5">
-      <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 6">
+  </section>
+
+  <!-- Process Section -->
+  <section id="proceso" class="process-section">
+    <div class="container">
+      <div class="section-title">
+        <div class="eyebrow"><span class="diamond-icon"></span> Cómo pedir</div>
+        <h2>De tu WhatsApp a tu puerta</h2>
+        <p>Un proceso simple y directo para que disfrutes sin complicaciones.</p>
+      </div>
+      
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-number">01</div>
+          <h3>Elige tu tabla</h3>
+          <p>Revisa el menú y elige el tamaño que se ajuste a tu ocasión y número de personas.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">02</div>
+          <h3>Escríbenos</h3>
+          <p>Confirma tu pedido directamente por WhatsApp, sin formularios largos ni registros.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">03</div>
+          <h3>Coordinamos</h3>
+          <p>Te confirmamos el método de pago y horario de entrega según tu distrito en Lima.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">04</div>
+          <h3>Disfruta</h3>
+          <p>Recibe tu tabla hermosamente armada y lista para destapar y compartir.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="cta-final">
-  <div class="wrap">
-    <div class="diamond-big"></div>
-    <h2>Haz de hoy un día especial</h2>
-    <p>Escríbenos y arma tu tabla ideal — te respondemos al toque.</p>
-    <a class="btn-primary" href="https://wa.me/51921093040" target="_blank">Pedir por WhatsApp ↗</a>
-  </div>
-</section>
+  <!-- Gallery Section -->
+  <section id="galeria" class="gallery-section">
+    <div class="container">
+      <div class="section-title">
+        <div class="eyebrow"><span class="diamond-icon"></span> Galería</div>
+        <h2>Lo que hemos armado</h2>
+      </div>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item large">
+          <img src="https://images.unsplash.com/photo-1631206753348-db44968fd440?q=80&w=900&auto=format&fit=crop" alt="Tabla de quesos 1">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1571805618775-9fd2ba7bd3e7?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 2">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 3">
+        </div>
+        <div class="gallery-item tall">
+          <img src="https://images.unsplash.com/photo-1626200419199-391ae4be7a41?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 4">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1626957341926-98752fc2ba90?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 5">
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=600&auto=format&fit=crop" alt="Tabla de quesos 6">
+        </div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <div class="wrap foot-row">
-    <div class="brand"><div class="mark"><span>LC</span></div>Lima Cheese Co</div>
-    <div>Delivery a todo Lima · @limacheeseco · 921 093 040</div>
-  </div>
-</footer>
+  <!-- Final CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="diamond-icon"></div>
+      <h2>Haz de hoy un día especial</h2>
+      <p>Escríbenos y arma tu tabla ideal — te respondemos al instante.</p>
+      <a class="btn btn-gold" href="https://wa.me/51921093040" target="_blank">Pedir por WhatsApp ↗</a>
+    </div>
+  </section>
 
-<div class="badge-mock">✦ Mockup de muestra — Minilux</div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <a href="#" class="logo footer-logo">
+          <div class="logo-diamond"><span>LC</span></div>
+          Lima Cheese Co
+        </a>
+        <div class="footer-links">
+          <a href="https://instagram.com/limacheeseco" target="_blank">Instagram</a>
+          <a href="https://wa.me/51921093040" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Delivery a todo Lima · @limacheeseco · 921 093 040</p>
+        <p>&copy; 2026 Lima Cheese Co. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
 
+  <!-- Scripts -->
+  <script src="main.js"></script>
 </body>
 </html>
